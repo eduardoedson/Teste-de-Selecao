@@ -16,15 +16,13 @@
 
 ```
 # -*- coding: utf-8 -*-
-import urllib, json
-import datetime
-###############################################################################
+import datetime, json, urllib
+
 def get_cotacoes(inicio, fim):
-    step = datetime.timedelta(days = 1)
+    step = datetime.timedelta(days=1)
     valores = []
 
     while inicio <= fim:
-        print '1'
         url = 'http://api.fixer.io/'
         url += str(inicio.date())
         url += '?base=USD&symbols=BRL'
@@ -34,7 +32,7 @@ def get_cotacoes(inicio, fim):
         inicio += step
 
     return valores
-###############################################################################
+
 data_inicio = '2009-08-07'
 data_fim = '2011-11-17'
 
@@ -42,11 +40,9 @@ inicio = datetime.datetime.strptime(data_inicio, '%Y-%m-%d')
 fim = datetime.datetime.strptime(data_fim, '%Y-%m-%d')
 valores = get_cotacoes(inicio, fim)
 
-maior, menor = valores[0], valores[0]
-total = 0
+maior, menor, total = valores[0], valores[0], 0
 
 for dia, valor in valores:
-    print '2'
     if dia != '2009-08-07' and dia != '2011-11-17':
         total += valor
     if valor > maior[1]:
