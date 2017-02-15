@@ -8,4 +8,5 @@
     - Digite: 
         - python code.py
         
-    - OBS: Rodar com python 2, caso o comando acima não funcione, use python2 code.py
+    - OBS: Rodar com python 2, caso o comando acima não funcione, use:
+        - python2 code.py
